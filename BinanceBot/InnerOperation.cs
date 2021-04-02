@@ -24,6 +24,7 @@ namespace BinanceBot
         public void Stop()
         {
             WriteToFile("Service Durduruldu " + DateTime.Now);
+
         }
 
         public void WriteToFile(string Message)
