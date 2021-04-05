@@ -1,43 +1,37 @@
-﻿using Binance.API.Csharp.Client;
-using Binance.API.Csharp.Client.Models.Enums;
+﻿using Binance.Generate.OTT;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Timers;
 
 namespace BinanceBot
 {
     public class InnerOperation
     {
+        public const string sourceDirectory = @"C:\BinanceBot\";
         Timer timer = new Timer();
         int counter = 0;
         public void Start()
         {
             WriteToFile("Service Başladı " + DateTime.Now);
             timer.Elapsed += new ElapsedEventHandler(OnElapsedTime);
-            timer.Interval = 5000;
+            timer.Interval = 50000;
             timer.Enabled = true;
         }
 
         public void Stop()
         {
-            WriteToFile("Service Durduruldu " + DateTime.Now);
-
+            WriteToFile("Service Tamamlandı " + DateTime.Now);
         }
 
         public void WriteToFile(string Message)
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + "\\Logs";
-
-            if (!Directory.Exists(path))
+            if (!Directory.Exists(sourceDirectory))
             {
-                Directory.CreateDirectory(path);
+                Directory.CreateDirectory(sourceDirectory);
             }
 
-            string filepath = AppDomain.CurrentDomain.BaseDirectory + "\\Logs\\ServiceLog_" + DateTime.Now.Date.ToShortDateString().Replace('/', '_') + ".txt";
-            
+            string filepath = sourceDirectory + "\\Log.txt";
+
             if (!File.Exists(filepath))
             {
                 using (StreamWriter sw = File.CreateText(filepath))
@@ -54,8 +48,8 @@ namespace BinanceBot
             }
         }
         private void OnElapsedTime(object source, ElapsedEventArgs e)
-        {           
-           WriteToFile("Binance Login :    " + DateTime.Now);
+        {
+            GenerateOTTLine.GenerateOTT();
         }
     }
 }
