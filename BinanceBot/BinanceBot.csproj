@@ -32,10 +32,29 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Binance.API.Csharp.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>SharedLib\Binance.API.Csharp.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Binance.API.Csharp.Client.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>SharedLib\Binance.API.Csharp.Client.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Binance.API.Csharp.Client.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>SharedLib\Binance.API.Csharp.Client.Models.dll</HintPath>
+    </Reference>
     <Reference Include="Binance.Generate.OTT, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>SharedLib\Binance.Generate.OTT.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>SharedLib\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
@@ -74,8 +93,13 @@
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
+    <Content Include="SharedLib\Binance.API.Csharp.Client.dll" />
+    <Content Include="SharedLib\Binance.API.Csharp.Client.Domain.dll" />
+    <Content Include="SharedLib\Binance.API.Csharp.Client.Models.dll" />
     <Content Include="SharedLib\Binance.Generate.OTT.dll" />
+    <Content Include="SharedLib\Newtonsoft.Json.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

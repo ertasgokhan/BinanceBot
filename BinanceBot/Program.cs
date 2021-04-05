@@ -1,4 +1,5 @@
-﻿using System.ServiceProcess;
+﻿using Binance.Generate.OTT;
+using System.ServiceProcess;
 
 namespace BinanceBot
 {
@@ -15,7 +16,6 @@ namespace BinanceBot
                 new Service1()
             };
             ServiceBase.Run(ServicesToRun);
-           
         }
     }
 }
