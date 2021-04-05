@@ -9,7 +9,6 @@ namespace BinanceBot
     {
         public const string sourceDirectory = @"C:\BinanceBot\";
         Timer timer = new Timer();
-        int counter = 0;
         public void Start()
         {
             WriteToFile("Service Başladı " + DateTime.Now);
