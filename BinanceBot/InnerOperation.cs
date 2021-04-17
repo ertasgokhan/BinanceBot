@@ -1,7 +1,10 @@
 ﻿using Binance.Generate.OTT;
+using Binance.OTT.Trade;
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using System.Timers;
+using Telegram.Bot;
 
 namespace BinanceBot
 {
@@ -9,20 +12,24 @@ namespace BinanceBot
     {
         public const string sourceDirectory = @"C:\BinanceBot\";
         Timer timer = new Timer();
+        private static TelegramBotClient botClient = new TelegramBotClient("1724957087:AAH0ByKhfMJIGPP8JI51oJMqCh9HbwwmRrU");
+
         public void Start()
         {
             WriteToFile("Service Başladı " + DateTime.Now);
-            timer.Elapsed += new ElapsedEventHandler(OnElapsedTime);
-            timer.Interval = 50000;
+            SendMessageFromTelegramBot("Servis çalışmaya başladı");
+            timer.Elapsed += new ElapsedEventHandler(OnElapsedTimeAsync);
+            timer.Interval = 500000;
             timer.Enabled = true;
         }
 
         public void Stop()
         {
             WriteToFile("Service Tamamlandı " + DateTime.Now);
+            SendMessageFromTelegramBot("Servis sonlandırıldı");
         }
 
-        public void WriteToFile(string Message)
+        private void WriteToFile(string Message)
         {
             if (!Directory.Exists(sourceDirectory))
             {
@@ -46,9 +53,17 @@ namespace BinanceBot
                 }
             }
         }
-        private void OnElapsedTime(object source, ElapsedEventArgs e)
+
+        private static void SendMessageFromTelegramBot(string message)
+        {
+            botClient.SendTextMessageAsync("-535329225", message);
+        }
+
+        private async static void OnElapsedTimeAsync(object source, ElapsedEventArgs e)
         {
             GenerateOTTLine.GenerateOTT();
+
+            await BinanceTrade.TradeAsync();
         }
     }
 }
