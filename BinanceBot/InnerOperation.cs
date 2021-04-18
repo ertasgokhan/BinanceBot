@@ -1,6 +1,7 @@
 ﻿using Binance.Generate.OTT;
 using Binance.OTT.Trade;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using System.Timers;
@@ -19,7 +20,7 @@ namespace BinanceBot
             WriteToFile("Service Başladı " + DateTime.Now);
             SendMessageFromTelegramBot("Servis çalışmaya başladı");
             timer.Elapsed += new ElapsedEventHandler(OnElapsedTimeAsync);
-            timer.Interval = 400000; //3600000;
+            timer.Interval = 3600000;
             timer.Enabled = true;
         }
 
@@ -57,6 +58,17 @@ namespace BinanceBot
         private static void SendMessageFromTelegramBot(string message)
         {
             botClient.SendTextMessageAsync("-535329225", message);
+        }
+
+        private void ReSync()
+        {
+            Process p = new Process();
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.CreateNoWindow = true;
+            p.StartInfo.FileName = "NET";
+            p.StartInfo.Arguments = "TIME \\\\SERVERNAME /SET /YES";
+            p.Start();
+            p.WaitForExit();
         }
 
         private async static void OnElapsedTimeAsync(object source, ElapsedEventArgs e)
