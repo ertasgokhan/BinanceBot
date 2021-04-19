@@ -17,10 +17,11 @@ namespace BinanceBot
 
         public void Start()
         {
+            readEnvironmentVariables();
             WriteToFile("Service Başladı " + DateTime.Now);
             SendMessageFromTelegramBot("Servis çalışmaya başladı");
             timer.Elapsed += new ElapsedEventHandler(OnElapsedTimeAsync);
-            timer.Interval = 3600000;
+            timer.Interval = 360000;
             timer.Enabled = true;
         }
 
