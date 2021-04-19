@@ -13,7 +13,8 @@ namespace BinanceBot
     {
         public const string sourceDirectory = @"C:\BinanceBot\";
         Timer timer = new Timer();
-        private static TelegramBotClient botClient = new TelegramBotClient("1724957087:AAH0ByKhfMJIGPP8JI51oJMqCh9HbwwmRrU");
+        private static EnvironmentVariables environmentVariables = new EnvironmentVariables();
+        private static TelegramBotClient botClient = new TelegramBotClient(environmentVariables.TelegramToken);
 
         public void Start()
         {
@@ -60,8 +61,25 @@ namespace BinanceBot
             botClient.SendTextMessageAsync("-1001152564061", message);
         }
 
+        private static void readEnvironmentVariables()
+        {
+            string filepath = sourceDirectory + "environment_variables.txt";
+
+            using (StreamReader rd = File.OpenText(filepath))
+            {
+                while (!rd.EndOfStream)
+                {
+                    string str = rd.ReadLine();
+                    environmentVariables.TelegramToken = str.Split(';')[2];
+                    environmentVariables.ChatId = str.Split(';')[3];
+                }
+            }
+        }
+
         private async static void OnElapsedTimeAsync(object source, ElapsedEventArgs e)
         {
+            readEnvironmentVariables();
+
             GenerateOTTLine.GenerateOTT();
 
             await BinanceTrade.TradeAsync();

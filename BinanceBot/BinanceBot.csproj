@@ -75,6 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnvironmentVariables.cs" />
     <Compile Include="InnerOperation.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
