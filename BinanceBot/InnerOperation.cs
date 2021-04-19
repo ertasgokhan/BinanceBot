@@ -57,18 +57,7 @@ namespace BinanceBot
 
         private static void SendMessageFromTelegramBot(string message)
         {
-            botClient.SendTextMessageAsync("-535329225", message);
-        }
-
-        private void ReSync()
-        {
-            Process p = new Process();
-            p.StartInfo.UseShellExecute = false;
-            p.StartInfo.CreateNoWindow = true;
-            p.StartInfo.FileName = "NET";
-            p.StartInfo.Arguments = "TIME \\\\SERVERNAME /SET /YES";
-            p.Start();
-            p.WaitForExit();
+            botClient.SendTextMessageAsync("-1001152564061", message);
         }
 
         private async static void OnElapsedTimeAsync(object source, ElapsedEventArgs e)

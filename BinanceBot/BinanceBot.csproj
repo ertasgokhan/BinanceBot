@@ -100,7 +100,6 @@
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="SharedLib\Binance.API.Csharp.Client.dll" />
     <Content Include="SharedLib\Binance.API.Csharp.Client.Domain.dll" />
