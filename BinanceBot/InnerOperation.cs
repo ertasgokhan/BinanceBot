@@ -14,7 +14,6 @@ namespace BinanceBot
         public const string sourceDirectory = @"C:\BinanceBot\";
         Timer timer = new Timer();
         private static EnvironmentVariables environmentVariables = new EnvironmentVariables();
-        private static TelegramBotClient botClient = new TelegramBotClient(environmentVariables.TelegramToken);
 
         public void Start()
         {
@@ -58,6 +57,8 @@ namespace BinanceBot
 
         private static void SendMessageFromTelegramBot(string message)
         {
+            TelegramBotClient botClient = new TelegramBotClient(environmentVariables.TelegramToken);
+
             botClient.SendTextMessageAsync("-1001152564061", message);
         }
 
