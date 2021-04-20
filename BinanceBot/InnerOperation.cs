@@ -2,6 +2,7 @@
 using Binance.OTT.Trade;
 using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 using System.Timers;
@@ -17,11 +18,12 @@ namespace BinanceBot
 
         public void Start()
         {
+            CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.GetCultureInfo("tr-TR");
             readEnvironmentVariables();
             WriteToFile("Service Başladı " + DateTime.Now);
             SendMessageFromTelegramBot("Servis çalışmaya başladı");
             timer.Elapsed += new ElapsedEventHandler(OnElapsedTimeAsync);
-            timer.Interval = 3600000;
+            timer.Interval = 360000;
             timer.Enabled = true;
         }
 
