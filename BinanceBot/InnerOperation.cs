@@ -1,5 +1,6 @@
 ﻿using Binance.Generate.OTT;
 using Binance.OTT.Trade;
+using Binance.UtilitiesLib;
 using System;
 using System.Diagnostics;
 using System.Globalization;
@@ -76,8 +77,8 @@ namespace BinanceBot
                 while (!rd.EndOfStream)
                 {
                     string str = rd.ReadLine();
-                    environmentVariables.TelegramToken = str.Split(';')[2];
-                    environmentVariables.ChatId = str.Split(';')[3];
+                    environmentVariables.TelegramToken = StringCipher.Decrypt(str.Split(';')[2]);
+                    environmentVariables.ChatId = StringCipher.Decrypt(str.Split(';')[3]);
                 }
             }
         }
