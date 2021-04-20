@@ -4,9 +4,11 @@ using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using Telegram.Bot;
+using Timer = System.Timers.Timer;
 
 namespace BinanceBot
 {
@@ -18,7 +20,7 @@ namespace BinanceBot
 
         public void Start()
         {
-            CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.GetCultureInfo("tr-TR");
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
             readEnvironmentVariables();
             WriteToFile("Service Başladı " + DateTime.Now);
             SendMessageFromTelegramBot("Servis çalışmaya başladı");
