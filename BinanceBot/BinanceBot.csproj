@@ -107,6 +107,7 @@
     <Content Include="SharedLib\Binance.API.Csharp.Client.Models.dll" />
     <Content Include="SharedLib\Binance.Generate.OTT.dll" />
     <Content Include="SharedLib\Binance.OTT.Trade.dll" />
+    <Content Include="SharedLib\Binance.UtilitiesLib.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
