@@ -21,7 +21,7 @@ namespace BinanceBot
 
         protected override void OnStart(string[] args)
         {
-            obj.Start();
+            obj.StartAsync();
         }
 
         protected override void OnStop()

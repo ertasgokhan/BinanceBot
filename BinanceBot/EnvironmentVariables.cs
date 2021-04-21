@@ -8,9 +8,9 @@ namespace BinanceBot
 {
     public class EnvironmentVariables
     {
-        public string ApiKey { get; set; }
-        public string ApiSecretKey { get; set; }
-        public string TelegramToken { get; set; }
-        public string ChatId { get; set; }
+        public string x { get; set; }
+        public string y { get; set; }
+        public string z { get; set; }
+        public string w { get; set; }
     }
 }

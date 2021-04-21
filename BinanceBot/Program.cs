@@ -1,6 +1,7 @@
 ﻿using Binance.Generate.OTT;
 using Binance.OTT.Trade;
 using System.ServiceProcess;
+using System.Threading.Tasks;
 
 namespace BinanceBot
 {
@@ -20,21 +21,21 @@ namespace BinanceBot
         }
 
 
-        //        static async System.Threading.Tasks.Task Main()
+        //        static async Task Main()
         //        {
         //#if (!DEBUG)
         //            ServiceBase[] ServicesToRun;
         //            ServicesToRun = new ServiceBase[]
         //            {
-        //                new Service1()
+        //                        new Service1()
         //            };
         //            ServiceBase.Run(ServicesToRun);
         //#else
-        //            Service1 myServ = new Service1();
+        //            //Service1 myServ = new Service1();
         //            //myServ.Process();
 
 
-        //            GenerateOTTLine.GenerateOTT();
+        //            await GenerateOTTLine.GenerateOTT();
 
         //            await BinanceTrade.TradeAsync();
 
