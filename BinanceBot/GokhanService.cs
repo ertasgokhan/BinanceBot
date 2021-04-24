@@ -12,7 +12,7 @@ namespace BinanceBot
 {
     public partial class GokhanService : ServiceBase
     {
-        InnerOperation obj = new InnerOperation();
+        GokhanServiceOperation obj = new GokhanServiceOperation();
 
         public GokhanService()
         {

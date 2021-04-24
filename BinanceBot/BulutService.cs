@@ -12,7 +12,7 @@ namespace BinanceBot
 {
     public partial class BulutService : ServiceBase
     {
-        InnerOperation obj = new InnerOperation();
+        BulutServiceOperation obj = new BulutServiceOperation();
 
         public BulutService()
         {

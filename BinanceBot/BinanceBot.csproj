@@ -85,6 +85,8 @@
     <Compile Include="BulutService.Designer.cs">
       <DependentUpon>BulutService.cs</DependentUpon>
     </Compile>
+    <Compile Include="BulutServiceOperation.cs" />
+    <Compile Include="GokhanServiceOperation.cs" />
     <Compile Include="GokhanService.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -92,7 +94,7 @@
       <DependentUpon>GokhanService.cs</DependentUpon>
     </Compile>
     <Compile Include="EnvironmentVariables.cs" />
-    <Compile Include="InnerOperation.cs" />
+    <Compile Include="CommonServiceOperation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>

@@ -12,7 +12,7 @@ namespace BinanceBot
 {
     public partial class CommonService : ServiceBase
     {
-        InnerOperation obj = new InnerOperation();
+        CommonServiceOperation obj = new CommonServiceOperation();
 
         public CommonService()
         {

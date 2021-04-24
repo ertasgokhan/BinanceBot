@@ -13,7 +13,7 @@ using Timer = System.Timers.Timer;
 
 namespace BinanceBot
 {
-    public class InnerOperation
+    public class CommonServiceOperation
     {
         public string sourceDirectory;
         public string accountName;
