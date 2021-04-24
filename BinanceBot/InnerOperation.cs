@@ -15,8 +15,8 @@ namespace BinanceBot
 {
     public class InnerOperation
     {
-        public static string sourceDirectory;
-        public static string accountName;
+        public string sourceDirectory;
+        public string accountName;
         Timer timer = new Timer();
         private static EnvironmentVariables environmentVariables = new EnvironmentVariables();
         private static TelegramBotClient botClient;
@@ -74,7 +74,7 @@ namespace BinanceBot
             await botClient.SendTextMessageAsync(environmentVariables.w, message);
         }
 
-        private static void readEnvironmentVariables()
+        private void readEnvironmentVariables()
         {
             string filepath = sourceDirectory + "environment_variables.txt";
 
@@ -91,7 +91,7 @@ namespace BinanceBot
             botClient = new TelegramBotClient(environmentVariables.z);
         }
 
-        private static async void OnElapsedTimeAsync(object source, ElapsedEventArgs e)
+        private async void OnElapsedTimeAsync(object source, ElapsedEventArgs e)
         {
             await GenerateOTTLine.GenerateOTT(accountName);
 
