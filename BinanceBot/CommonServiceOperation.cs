@@ -33,9 +33,6 @@ namespace BinanceBot
             timer.Elapsed += new ElapsedEventHandler(OnElapsedTimeAsync);
             timer.Interval = 3600000;
             timer.Enabled = true;
-            // Generate OTT && Trade
-            GenerateOTTLine.GenerateOTT(account);
-            BinanceTrade.TradeAsync(account);
         }
 
         public void Stop()
