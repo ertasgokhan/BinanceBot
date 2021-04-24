@@ -15,14 +15,17 @@ namespace BinanceBot
 {
     public class InnerOperation
     {
-        public const string sourceDirectory = @"C:\BinanceBot\";
+        public static string sourceDirectory = @"C:\TradeBot\";
+        public static string accountName;
         Timer timer = new Timer();
         private static EnvironmentVariables environmentVariables = new EnvironmentVariables();
         private static TelegramBotClient botClient;
 
-        public async Task StartAsync()
+        public async Task StartAsync(string account)
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
+            sourceDirectory += account;
+            accountName = account;
             readEnvironmentVariables();
             SendMessageFromTelegramBot("Servis çalışmaya başladı");
             WriteToFile("Service Başladı " + DateTime.Now);
@@ -31,14 +34,14 @@ namespace BinanceBot
             timer.Interval = 3600000;
             timer.Enabled = true;
             // Generate OTT && Trade
-            await GenerateOTTLine.GenerateOTT();
-            await BinanceTrade.TradeAsync();
+            await GenerateOTTLine.GenerateOTT(account);
+            await BinanceTrade.TradeAsync(account);
         }
 
         public void Stop()
         {
-            WriteToFile("Service Tamamlandı " + DateTime.Now);
-            SendMessageFromTelegramBot("Servis sonlandırıldı");
+            WriteToFile("Servis Sonlandırıldı " + DateTime.Now);
+            SendMessageFromTelegramBot("Servis Sonlandırıldı");
         }
 
         private void WriteToFile(string Message)
@@ -90,9 +93,9 @@ namespace BinanceBot
 
         private static async void OnElapsedTimeAsync(object source, ElapsedEventArgs e)
         {
-            await GenerateOTTLine.GenerateOTT();
+            await GenerateOTTLine.GenerateOTT(accountName);
 
-            await BinanceTrade.TradeAsync();
+            await BinanceTrade.TradeAsync(accountName);
         }
     }
 }

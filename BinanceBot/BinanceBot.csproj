@@ -79,21 +79,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BulutService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BulutService.Designer.cs">
+      <DependentUpon>BulutService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GokhanService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GokhanService.Designer.cs">
+      <DependentUpon>GokhanService.cs</DependentUpon>
+    </Compile>
     <Compile Include="EnvironmentVariables.cs" />
     <Compile Include="InnerOperation.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ProjectInstaller.Designer.cs">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </Compile>
-    <Compile Include="Service1.cs">
+    <Compile Include="CommonService.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Service1.Designer.cs">
-      <DependentUpon>Service1.cs</DependentUpon>
+    <Compile Include="CommonService.Designer.cs">
+      <DependentUpon>CommonService.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +124,9 @@
     <Content Include="SharedLib\Binance.Generate.OTT.dll" />
     <Content Include="SharedLib\Binance.OTT.Trade.dll" />
     <Content Include="SharedLib\Binance.UtilitiesLib.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

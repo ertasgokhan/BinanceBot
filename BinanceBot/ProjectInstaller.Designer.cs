@@ -28,31 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.serviceProcessInstaller1 = new System.ServiceProcess.ServiceProcessInstaller();
-            this.BinanceBot = new System.ServiceProcess.ServiceInstaller();
+            this.commonServiceInstaller = new System.ServiceProcess.ServiceInstaller();
+            this.gokhanServiceInstaller = new System.ServiceProcess.ServiceInstaller();
+            this.bulutServiceInstaller = new System.ServiceProcess.ServiceInstaller();
             // 
-            // serviceProcessInstaller1
+            // commonServiceInstaller
             // 
-            this.serviceProcessInstaller1.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
-            this.serviceProcessInstaller1.Password = null;
-            this.serviceProcessInstaller1.Username = null;
+            this.commonServiceInstaller.Description = "Common Service Trade";
+            this.commonServiceInstaller.DisplayName = "CommonService";
+            this.commonServiceInstaller.ServiceName = "CommonService";
             // 
-            // BinanceBot
+            // gokhanServiceInstaller
             // 
-            this.BinanceBot.Description = "Binance API Erişim";
-            this.BinanceBot.ServiceName = "BinanceBot";
+            this.gokhanServiceInstaller.Description = "Gokhan Service Trade";
+            this.gokhanServiceInstaller.DisplayName = "GokhanService";
+            this.gokhanServiceInstaller.ServiceName = "GokhanService";
+            // 
+            // bulutServiceInstaller
+            // 
+            this.bulutServiceInstaller.Description = "Bulut Service Trade";
+            this.bulutServiceInstaller.DisplayName = "BulutService";
+            this.bulutServiceInstaller.ServiceName = "BulutService";
             // 
             // ProjectInstaller
             // 
             this.Installers.AddRange(new System.Configuration.Install.Installer[] {
-            this.serviceProcessInstaller1,
-            this.BinanceBot});
+            this.gokhanServiceInstaller,
+            this.commonServiceInstaller,
+            this.bulutServiceInstaller});
 
         }
 
         #endregion
-
-        private System.ServiceProcess.ServiceProcessInstaller serviceProcessInstaller1;
-        private System.ServiceProcess.ServiceInstaller BinanceBot;
+        private System.ServiceProcess.ServiceInstaller commonServiceInstaller;
+        private System.ServiceProcess.ServiceInstaller gokhanServiceInstaller;
+        private System.ServiceProcess.ServiceInstaller bulutServiceInstaller;
     }
 }

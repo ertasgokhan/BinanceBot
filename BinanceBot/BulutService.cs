@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 
 namespace BinanceBot
 {
-    public partial class Service1 : ServiceBase
+    public partial class BulutService : ServiceBase
     {
         InnerOperation obj = new InnerOperation();
 
-        public Service1()
+        public BulutService()
         {
             InitializeComponent();
         }
 
         protected override void OnStart(string[] args)
         {
-            obj.StartAsync();
+            obj.StartAsync(@"BULUT\\");
         }
 
         protected override void OnStop()
