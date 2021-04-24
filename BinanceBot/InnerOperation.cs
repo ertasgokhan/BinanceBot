@@ -21,7 +21,7 @@ namespace BinanceBot
         private static EnvironmentVariables environmentVariables = new EnvironmentVariables();
         private static TelegramBotClient botClient;
 
-        public void StartAsync(string account)
+        public async Task StartAsync(string account)
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
             sourceDirectory = @"C:\TradeBot\" + account;
@@ -34,8 +34,8 @@ namespace BinanceBot
             timer.Interval = 3600000;
             timer.Enabled = true;
             // Generate OTT && Trade
-            GenerateOTTLine.GenerateOTT(account);
-            BinanceTrade.TradeAsync(account);
+            await GenerateOTTLine.GenerateOTT(account);
+            await BinanceTrade.TradeAsync(account);
         }
 
         public void Stop()
@@ -91,11 +91,11 @@ namespace BinanceBot
             botClient = new TelegramBotClient(environmentVariables.z);
         }
 
-        private void OnElapsedTimeAsync(object source, ElapsedEventArgs e)
+        private async void OnElapsedTimeAsync(object source, ElapsedEventArgs e)
         {
-            GenerateOTTLine.GenerateOTT(accountName);
+            await GenerateOTTLine.GenerateOTT(accountName);
 
-            BinanceTrade.TradeAsync(accountName);
+            await BinanceTrade.TradeAsync(accountName);
         }
     }
 }
