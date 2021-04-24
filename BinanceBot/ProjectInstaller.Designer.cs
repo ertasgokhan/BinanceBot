@@ -68,9 +68,9 @@
         }
 
         #endregion
-        public System.ServiceProcess.ServiceInstaller bulutServiceInstaller;
-        public System.ServiceProcess.ServiceInstaller commonServiceInstaller;
-        public System.ServiceProcess.ServiceInstaller gokhanServiceInstaller;
-        public System.ServiceProcess.ServiceProcessInstaller serviceProcessInstaller1;
+        private System.ServiceProcess.ServiceInstaller bulutServiceInstaller;
+        private System.ServiceProcess.ServiceInstaller commonServiceInstaller;
+        private System.ServiceProcess.ServiceInstaller gokhanServiceInstaller;
+        private System.ServiceProcess.ServiceProcessInstaller serviceProcessInstaller1;
     }
 }
