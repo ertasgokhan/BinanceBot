@@ -30,8 +30,8 @@
         {
             this.commonServiceInstaller = new System.ServiceProcess.ServiceInstaller();
             this.gokhanServiceInstaller = new System.ServiceProcess.ServiceInstaller();
-            this.bulutServiceInstaller = new System.ServiceProcess.ServiceInstaller();
             this.serviceProcessInstaller1 = new System.ServiceProcess.ServiceProcessInstaller();
+            this.bulutServiceInstaller = new System.ServiceProcess.ServiceInstaller();
             // 
             // commonServiceInstaller
             // 
@@ -45,32 +45,32 @@
             this.gokhanServiceInstaller.DisplayName = "GokhanService";
             this.gokhanServiceInstaller.ServiceName = "GokhanService";
             // 
-            // bulutServiceInstaller
-            // 
-            this.bulutServiceInstaller.Description = "Bulut Service Trade";
-            this.bulutServiceInstaller.DisplayName = "BulutService";
-            this.bulutServiceInstaller.ServiceName = "BulutService";
-            // 
             // serviceProcessInstaller1
             // 
             this.serviceProcessInstaller1.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
             this.serviceProcessInstaller1.Password = null;
             this.serviceProcessInstaller1.Username = null;
             // 
+            // bulutServiceInstaller
+            // 
+            this.bulutServiceInstaller.Description = "Bulut Service Trade";
+            this.bulutServiceInstaller.DisplayName = "BulutService";
+            this.bulutServiceInstaller.ServiceName = "BulutService";
+            // 
             // ProjectInstaller
             // 
             this.Installers.AddRange(new System.Configuration.Install.Installer[] {
             this.gokhanServiceInstaller,
             this.commonServiceInstaller,
-            this.bulutServiceInstaller,
-            this.serviceProcessInstaller1});
+            this.serviceProcessInstaller1,
+            this.bulutServiceInstaller});
 
         }
 
         #endregion
-        private System.ServiceProcess.ServiceInstaller commonServiceInstaller;
-        private System.ServiceProcess.ServiceInstaller gokhanServiceInstaller;
-        private System.ServiceProcess.ServiceInstaller bulutServiceInstaller;
-        private System.ServiceProcess.ServiceProcessInstaller serviceProcessInstaller1;
+        public System.ServiceProcess.ServiceInstaller bulutServiceInstaller;
+        public System.ServiceProcess.ServiceInstaller commonServiceInstaller;
+        public System.ServiceProcess.ServiceInstaller gokhanServiceInstaller;
+        public System.ServiceProcess.ServiceProcessInstaller serviceProcessInstaller1;
     }
 }
