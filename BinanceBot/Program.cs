@@ -14,12 +14,14 @@ namespace BinanceBot
         /// </summary>
         static void Main()
         {
-            //ServiceBase[] ServicesToRun;
-            //ServicesToRun = new ServiceBase[]
-            //{
-            //    new Service1()
-            //};
-            //ServiceBase.Run(ServicesToRun);
+            ServiceBase[] ServicesToRun;
+            ServicesToRun = new ServiceBase[]
+            {
+                new GokhanService(),
+                new BulutService(),
+                new CommonService()
+            };
+            ServiceBase.Run(ServicesToRun);
         }
     }
 }
