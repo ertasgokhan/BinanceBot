@@ -15,7 +15,7 @@ namespace BinanceBot
 {
     public class InnerOperation
     {
-        public static string sourceDirectory = @"C:\TradeBot\";
+        public static string sourceDirectory;
         public static string accountName;
         Timer timer = new Timer();
         private static EnvironmentVariables environmentVariables = new EnvironmentVariables();
@@ -24,7 +24,7 @@ namespace BinanceBot
         public async Task StartAsync(string account)
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
-            sourceDirectory += account;
+            sourceDirectory = @"C:\TradeBot\" + account;
             accountName = account;
             readEnvironmentVariables();
             SendMessageFromTelegramBot("Servis çalışmaya başladı");
