@@ -88,11 +88,11 @@ namespace BinanceBot
             botClient = new TelegramBotClient(environmentVariables.z);
         }
 
-        private void OnElapsedTimeAsync(object source, ElapsedEventArgs e)
+        private async void OnElapsedTimeAsync(object source, ElapsedEventArgs e)
         {
-            GenerateOTTLine.GenerateOTT(accountName);
+            await GenerateOTTLine.GenerateOTT(accountName);
 
-            BinanceTrade.TradeAsync(accountName);
+            await BinanceTrade.TradeAsync(accountName);
         }
     }
 }
