@@ -33,6 +33,7 @@ namespace BinanceBot
             timer.Elapsed += new ElapsedEventHandler(OnElapsedTimeAsync);
             timer.Interval = 3600000;
             timer.Enabled = true;
+            timer.Start();
         }
 
         public void Stop()
