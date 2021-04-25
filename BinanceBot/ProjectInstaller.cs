@@ -10,6 +10,21 @@ namespace BinanceBot
         public ProjectInstaller()
         {
             InitializeComponent();
+
+            var config = ConfigurationManager.OpenExeConfiguration(this.GetType().Assembly.Location);
+
+            if (config.AppSettings.Settings["ServiceName"] != null)
+            {
+                this.commonServiceInstaller.ServiceName = config.AppSettings.Settings["ServiceName"].Value;
+            }
+            if (config.AppSettings.Settings["DisplayName"] != null)
+            {
+                this.commonServiceInstaller.DisplayName = config.AppSettings.Settings["DisplayName"].Value;
+            }
+            if (config.AppSettings.Settings["Description"] != null)
+            {
+                this.commonServiceInstaller.Description = config.AppSettings.Settings["Description"].Value;
+            }
         }
 
         private void serviceProcessInstaller1_AfterInstall(object sender, InstallEventArgs e)

@@ -1,6 +1,4 @@
-﻿using System.Configuration;
-
-namespace BinanceBot
+﻿namespace BinanceBot
 {
     partial class ProjectInstaller
     {
@@ -35,9 +33,9 @@ namespace BinanceBot
             // 
             // commonServiceInstaller
             // 
-            this.commonServiceInstaller.Description = ConfigurationManager.AppSettings["ServiceDescription"];
-            this.commonServiceInstaller.DisplayName = ConfigurationManager.AppSettings["ServiceName"];
-            this.commonServiceInstaller.ServiceName = ConfigurationManager.AppSettings["ServiceName"];
+            this.commonServiceInstaller.Description = "Common Service Trade";
+            this.commonServiceInstaller.DisplayName = "CommonService";
+            this.commonServiceInstaller.ServiceName = "CommonService";
             // 
             // serviceProcessInstaller1
             // 
