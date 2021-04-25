@@ -17,8 +17,6 @@ namespace BinanceBot
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new GokhanService(),
-                new BulutService(),
                 new CommonService()
             };
             ServiceBase.Run(ServicesToRun);
