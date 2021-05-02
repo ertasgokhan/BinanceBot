@@ -34,7 +34,7 @@ namespace BinanceBot
             timer.Interval = 3600000;
             timer.Enabled = true;
             GenerateOTTLine.GenerateOTT(accountName);
-            BinanceTrade.TradeAsync(accountName);
+            //BinanceTrade.TradeAsync(accountName);
         }
 
         public void Stop()
@@ -94,7 +94,7 @@ namespace BinanceBot
         {
             await GenerateOTTLine.GenerateOTT(accountName);
 
-            await BinanceTrade.TradeAsync(accountName);
+            //await BinanceTrade.TradeAsync(accountName);
         }
     }
 }
